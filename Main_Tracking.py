@@ -1,18 +1,16 @@
 import cv2 as cv; import numpy as np
 import Functions as fn
 
-video = cv.VideoCapture('GX010034_1693593667530.MP4')
-
+video = cv.VideoCapture("..\Blue Origin Videos\EC-Bottom-GX010142 - Trim.MP4")
 
 total = int(video.get(cv.CAP_PROP_FRAME_COUNT)); res,frame = video.read()
 ImgBg = frame
-
 
 def contourFilter(contour):
     Area = cv.contourArea(contour)
     return Area
 
-start_number = 3000
+start_number = 0
 video.set(cv.CAP_PROP_POS_FRAMES,start_number-1)
 for Frame_Num in range(start_number,total):
     isTrue, frameOrig = video.read()
